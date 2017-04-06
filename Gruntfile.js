@@ -24,5 +24,6 @@ module.exports = function(grunt){
     grunt.registerTask('default', 'Watch', function(){
         grunt.task.run('watch')
     })
-    grunt.registerTask('test', ['mochaTest:progress', 'exec:coverage', 'exec:html_coverage'])
+    grunt.registerTask('test', ['mochaTest:progress'])
+    // grunt.registerTask('test', ['mochaTest:progress', 'exec:coverage', 'exec:html_coverage'])
 }
