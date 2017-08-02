@@ -31,6 +31,9 @@ describe('The dontLetMeDown module', () => {
     })
     describe('start', () => {
         it('should initialize a fork with the executor', () => {
+            var expectedResult = {
+                result: 'body'
+            }
             var params = {
                 executor: 'some-executor'
             }
@@ -38,14 +41,15 @@ describe('The dontLetMeDown module', () => {
                 fork: function(executor){
                     expect(executor).to.eql('some-executor')
                     return {
-                        on: function(){}
+                        on: function(){ return expectedResult }
                     }
                 }
             }
             instance = new Module(params, deps)
             instance.log = () => {}
             instance.startObserver = function(){}
-            instance.start()
+            var result = instance.start()
+            expect(result).to.eql(expectedResult)
         })
         describe('listeners', () => {
 

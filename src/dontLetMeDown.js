@@ -41,7 +41,7 @@ class MasterWatcher {
         this.currentTask.on('error', (error) => {
             _this.log(error);
         })
-        this.currentTask.on('message', data => {
+        return this.currentTask.on('message', data => {
             _this.log("received message " + data)
             if (data === 'alive') {
                 _this.lastVerification = _this.moment()
