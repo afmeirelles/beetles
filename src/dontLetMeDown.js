@@ -1,6 +1,8 @@
-fork = require('child_process').fork
-moment = require('moment')
-_ = require('lodash')
+'use strict'
+
+const fork = require('child_process').fork
+const moment = require('moment')
+const _ = require('lodash')
 
 class MasterWatcher {
 
